@@ -32,3 +32,5 @@ dist-ssr
 
 # Generated knowledge graph output
 graphify-out
+.vercel
+.env*
