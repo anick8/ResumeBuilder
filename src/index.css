@@ -1,0 +1,417 @@
+@import "tailwindcss";
+
+:root {
+  /* The only global theme variable in the resume template. */
+  --accent: #0f2a6e;
+}
+
+body {
+  margin: 0;
+  font-family: "Questrial", "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+}
+
+/* ---------- Editor layout ---------- */
+@media screen {
+  body {
+    background: #eef0f4;
+  }
+  .editor-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .controls {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+  .preview {
+    min-width: 0;
+    overflow-x: auto;
+    padding-bottom: 40px;
+  }
+  @media (max-width: 900px) {
+    .editor-layout {
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+    .controls {
+      position: static;
+      max-height: none;
+    }
+  }
+}
+
+/* ---------- Resume template ---------- */
+.resume-page {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.side-heading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.25);
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-rule {
+  flex: 1;
+  height: 1.5px;
+  opacity: 0.25;
+}
+.date-col {
+  font-size: 11.5px;
+  color: #6b7280;
+  letter-spacing: 0.02em;
+  padding-top: 3px;
+}
+.bullets {
+  list-style: none;
+  padding-left: 0;
+}
+.bullets > li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 12.8px;
+  line-height: 1.55;
+  color: #374151;
+}
+.bullets > li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+/* ---------- Modern template ---------- */
+.modern {
+  width: 100%;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1f2937;
+}
+.topo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.m-name {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.m-title {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--accent) 65%, #7cb5ff);
+}
+.m-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #374151;
+}
+.m-contact li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.m-contact svg {
+  color: color-mix(in srgb, var(--accent) 65%, #7cb5ff);
+}
+.m-columns {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 32px;
+}
+.m-heading {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  border-bottom: 2.5px solid var(--accent);
+}
+.m-body {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #374151;
+}
+.m-role {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.m-company {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--accent) 65%, #7cb5ff);
+}
+.m-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 3px;
+  font-size: 11px;
+  color: #4b5563;
+}
+.m-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.m-bullets {
+  list-style: disc;
+  padding-left: 16px;
+  margin-top: 4px;
+}
+.m-bullets > li {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #374151;
+  margin-bottom: 2px;
+}
+.m-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.m-chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+  padding: 2px 4px 3px;
+  border-bottom: 1.5px solid #d1d5db;
+}
+.m-chip .item-controls {
+  top: -14px;
+  right: -8px;
+}
+.m-dots {
+  display: flex;
+  gap: 4px;
+}
+.m-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  padding: 0;
+}
+.m-dot.on {
+  background: color-mix(in srgb, var(--accent) 60%, #7cb5ff);
+}
+.m-ach-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: color-mix(in srgb, var(--accent) 60%, #7cb5ff);
+}
+.m-ach-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Template picker thumbnails */
+.thumb {
+  display: flex;
+  height: 46px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+.thumb-col {
+  flex-direction: column;
+}
+.thumb-lines {
+  flex: 1;
+  margin: 8px;
+  background: repeating-linear-gradient(#e5e7eb 0 2px, transparent 2px 7px);
+}
+.thumb-two {
+  margin-top: 0;
+  background:
+    linear-gradient(90deg, transparent 55%, #fff 55% 62%, transparent 62%),
+    repeating-linear-gradient(#e5e7eb 0 2px, transparent 2px 7px);
+}
+
+/* ---------- Inline editing ---------- */
+.editable {
+  outline: none;
+  border-radius: 3px;
+  transition: box-shadow 0.12s;
+  min-width: 1ch;
+}
+@media screen {
+  .editable:hover {
+    box-shadow: 0 0 0 2px rgb(59 130 246 / 0.25);
+  }
+  .editable:focus {
+    box-shadow: 0 0 0 2px rgb(59 130 246 / 0.6);
+    background: rgb(59 130 246 / 0.05);
+  }
+  .sidebar .editable:focus {
+    background: rgb(255 255 255 / 0.12);
+  }
+  .editable:empty::before {
+    content: attr(data-placeholder);
+    opacity: 0.4;
+  }
+}
+
+.item-controls {
+  position: absolute;
+  right: -4px;
+  top: -6px;
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.group\/item:hover > .item-controls,
+.group\/bullet:hover > .item-controls,
+.group\/item:focus-within > .item-controls,
+.group\/bullet:focus-within > .item-controls {
+  opacity: 1;
+}
+.ctl-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  cursor: pointer;
+}
+.ctl-btn:hover {
+  background: #f3f4f6;
+}
+.ctl-danger:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+.ctl-light {
+  background: rgb(255 255 255 / 0.15);
+  border-color: rgb(255 255 255 / 0.35);
+  color: #fff;
+}
+.add-btn {
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: #6b7280;
+  border: 1px dashed #d1d5db;
+  border-radius: 6px;
+  padding: 3px 10px;
+  cursor: pointer;
+  background: transparent;
+}
+.add-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.add-light {
+  color: rgb(255 255 255 / 0.8);
+  border-color: rgb(255 255 255 / 0.4);
+}
+.add-light:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.level-slider {
+  width: 100%;
+  height: 10px;
+  margin-top: 2px;
+  opacity: 0;
+  cursor: pointer;
+}
+.group\/item:hover .level-slider,
+.group\/item:focus-within .level-slider {
+  opacity: 1;
+}
+
+/* ---------- Format toolbar ---------- */
+.tb-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tb-btn:hover {
+  background: #f3f4f6;
+}
+.tb-select {
+  height: 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 0 4px;
+  background: #fff;
+}
+
+/* ---------- Print / Save as PDF ---------- */
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .editor-layout {
+    display: block;
+    padding: 0;
+  }
+  .resume-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  .editable {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .modern {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
