@@ -1,16 +1,27 @@
-# React + Vite
+# ResumeBuilder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Paste a job description, get a resume tailored to it, export an ATS-friendly PDF — all in the browser, no backend.
 
-Currently, two official plugins are available:
+<!-- TODO: screenshot or GIF of editor + tailoring -->
+<!-- TODO: live demo link (Vercel) -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Why
+Most resume builders produce pretty PDFs that ATS parsers can't read, and none of them help you match a specific job. This one keeps a single-column reading order with real selectable text, and highlights/reorders your content against the JD's keywords.
 
-## React Compiler
+## Features
+- **JD tailoring** — extracts keywords from the job description and surfaces matching experience (`src/lib/tailor.js`)
+- **Inline editing** — click any text to edit; add, remove and reorder items
+- **ATS-friendly PDF export** — standard headings, selectable text (`src/lib/exportPdf.js`)
+- **Accent color + template picker**
+- **Sanitized HTML** for rich text fields
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
+React 19 · Vite · Tailwind CSS v4 · Context API · Vitest + React Testing Library
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Run locally
+```bash
+npm install
+npm run dev     # http://localhost:5173
+npm test        # unit + component tests
+npm run build
+```
